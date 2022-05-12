@@ -7,7 +7,7 @@
 JVM은 컴퓨터가 java 프로그램을 실행 가능하도록하는 가상 머신이다.
 즉, 하드웨어에 종속되지 않고 JVM 환경에서는 모든 자바 바이트코드를 실행할 수 있다.
 
-<p align="center"><img src="./img/jvm_1.png" width="100%"></p>
+<p align="center"><img src="./img/jvm_1.png" width="80%"></p>
 
 여기서 자바 `바이트코드`란, java source code(`.java`)가 아닌, 자바 컴파일러(`javac`)를 통해 컴파일한
 결과물(`.class`)을 말하며, JVM은 이 바이트코드를 실행하게 된다.
@@ -139,6 +139,38 @@ JVM이 관리하는 프로그램 상에서 데이터를 저장하기 위해 런�
 - new 연산자로 생성되는 객체와 배열을 저장한다.
 - 힙 영역에 생성된 객체와 배열은 스택 영역의 변수나 다른 객체의 필드에서 참조한다.
 - 가비지 컬렉션의 대상이며, 참조하는 변수나 필드가 없다면 의미 없는 객체가 그 대상이 된다.
+- Heap 내에는 `Young Generation`과 `Old Generation`이 존재하는데 자세한 내용은 `Garbage Collection`에서 정리
+  - Young Generation
+    - 자바 객체가 생성되자마자 저장되고, 생긴지 얼마 안되는 객체가 저장되는 공간
+    - 시간이 지나 우선순위가 낮아지면 Old 영역으로 옮겨지며, 객체가 사라질 때 Minor GC가 발생
+  - Old Generation
+    - 이 영역에서 객체가 사라질 때 Major GC(Full GC)가 발생
 
+## Execution Engine
+
+자바 바이트코드(*.class)를 명령어 단위로 수행하는 주체이다.
+자바 바이트코드는 기계어라기 보다는 인간에게 보다 친숙한 언어이므로, 이를 기계가 실행할 수 있도록 변환해야하며 두가지 방식이 존재한다
+
+- Interpreter
+  - 명령어를 하나씩 읽어서 해석 및 실행하는 방식
+  - 하나씩 해석하기에 개별 해석은 빠르지만, 인터프리팅 결과의 실행은 느리다는 단점이 존재
+- Just In Time(JIT) Compiler
+  - 인터프리터 방식으로 실행하다 적절한 시점에 바이트코드 전체를 컴파일하여 네이티브 코드로 변환, 네이티브 코드를 직접 실행하는 방식
+  - 네이티브 코드는 캐시에 저장되기에, 한번 컴파일된 코드는 빠르게 실행 가능하다
+
+JIT 컴파일러는 실행속도가 빠르지만 컴파일 과정은 인터프리팅에 비해 오래 걸리므로, 여러번 실행되지 않는 코드에 대해선 인터프리팅이 유리하다.
+따라서 JVM 내부적으로 해당 메서드를 얼마나 자주 수행되는지를 체크하고, 일정 정도를 넘을시에만, 컴파일 해야한다.
+
+## 간단 정리
+
+JVM은 자바코드가 하드웨어나 OS에 종속되지 않고 실행될 수 있도록하는 가상 환경으로, 
+크게는 컴파일된 자바 바이트코드를 읽는 `클래스 로더`와 로드된 데이터가 위치하는 `런타임 데이터 영역`,
+이를 실행하는 `실행 엔진`으로 구성되어 있다.
 
 ## Reference
+
+- https://en.wikipedia.org/wiki/Java_virtual_machine
+- https://d2.naver.com/helloworld/1230
+- https://asfirstalways.tistory.com/158
+- https://cantcoding.tistory.com/40
+- https://hoonmaro.tistory.com/19
