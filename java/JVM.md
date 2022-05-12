@@ -145,6 +145,7 @@ JVM이 관리하는 프로그램 상에서 데이터를 저장하기 위해 런�
     - 시간이 지나 우선순위가 낮아지면 Old 영역으로 옮겨지며, 객체가 사라질 때 Minor GC가 발생
   - Old Generation
     - 이 영역에서 객체가 사라질 때 Major GC(Full GC)가 발생
+  - [Heap Detail](GC.md#Heap-Detail(Minor-and-Major-GC))
 
 ## Execution Engine
 
