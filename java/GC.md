@@ -34,6 +34,11 @@ Old Generation
 - 여기서 발생하는 GC는 `Major GC`
 
 
+> 언제 Young Generation의 Survivor 에서 Old Generation으로 넘어갈까?  
+기준은 Young Generation 영역에서 `Minor GC`가 발생하는 동안 얼마나 오래 살아남았는지로 판단한다.
+각 객체는 `Minor GC`에서 살아남은 횟수를 기록하는 `Age bit`를 가지고 있으며, Minor GC가 발생할 때마다 age bit 값은 1씩 증가 하게되며, age bit 값이 `MaxTenuringThreshold`라는 설정값을 초과하게 되는 경우 Old Generation 영역을 객체가 이동 되는 것이다.
+하지만, Survivor 영역의 메모리가 부족할 경우 `Age bit`가 threshold를 넘지 않더라도 옮겨질 수 있다.
+
 ### Reachable and Unreachable
 
 <p align="center"><img src="./img/gc_2.png" width="80%"></p>
