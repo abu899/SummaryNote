@@ -103,6 +103,67 @@ OrderBy 절   -> convertOrder
 ...
 ```
 
-## SqlImplementor And RelToSqlConverter
+## RelToSqlConverter & SqlImplementor
+
+RelNode 를 다시 Sql 로 바꾸게 될 때 사용되는 클래스들이다. `RelToSqlConverter`는 LogicalScan, BindableTableScan,
+LogicalJoin 등 각각의 플랜의 동작 방식을 Sql 로 바꿀 때의 시작점이라고 볼 수 있다. `SqlImplementor`는 `RelToSqlConverter`을
+통해 나뉘어진 플랜를 구성하는 상세 내용을 Sql 로 변환하기 위한 클래스이다. 따라서, `RelToSqlConverter`의 `Result visit(Project e)`
+`Result visit(Join e)` 등을 보면, `SqlImplementor`의 `Builder`를 통해 실제 sql 을 만드는 걸 확인할 수 있다.
+
+보통 `SqlToRelConverter`에서 변경된 내역이 있다면, 이를 Sql 로 다시 변환할 때, 위 클래스들 또한 수정해야 한다.
+예를 들어서, `IN Clause 를 LogicalFilter`에 추가하는 수정이 진행되었을 때를 살펴보면 다음과 같다.
+```text
+SQL to RelNode
+1. SqlInOperator 라는 binary operator 클래스를 생성한다.
+2. SqlStdOperatorTable 에 SqlInOperator 객체를 생성하는 부분을 작성한다
+3. SqlToRelConverter 에서 IN 에 해당하면 이를 SqlInOperator 를 이용해 expression 을 만든다
+4. LogicalFilter 에 해당 expression 을 추가한다.
+5. SqlImplementor 에서 toSql() 에서 IN 조건에 동작할 내용을 추가한다.
+```
+
+## RelBuilder
+
+`RelBuilder`는 실제 내부 코드 수정보다는 사용이 잦은 클래스이다. `SqlToRelConverter`를 이용해 calcite 에서
+생성해주는 RelNode 를 사용하는게 일반적이지만, 종종 직접 RelNode 를 생성해줘야할 때 사용되는데 사용법이 어렵진 않지만
+사용 중 몇가지 실수할 만한 사항들을 정리했다.
+
+#### Schema
+
+RelBuilder 는 `RelBuilder.create(FrameworkConfig)`라는 함수를 통해 생성되며, `FrameworkConfig`생성에는 `Schema`가
+필요하다. 스키마 내부에는 `TableName`과 `TableInfo(ColumnName + Type)`가 저장되고 이를 기반으로 RelBuilder 는 동작한다.
+`RelBuilder.scan` 시 테이블 명이 들어가며 `filter, aggregation` 등에서는 테이블 정보를 활용하며, 당연히 사전에 스키마
+정보를 입력해줘야 정상적으로 동작한다.
+
+초기 테이블 정보를 모두 알고 있는 경우는 문제없으나, 상황에 따라 RelNode 를 분리해야하는 경우가 발생하는 경우 결과 테이블의 정보로
+스키마를 반드시 업데이트 해줘야한다. 예를 들어 `Filter`단계를 이전 단계와 나누고 싶고 이를 RelBuilder 로 직접 생성하는 경우
+초기 테이블 정보를 토대로 Filter 이전까지의 RelNode 를 만든 후, 그 결과 테이블을 반드시 업데이트 해줘야 Filter 다음 `RelBuilder.scan`
+이 정상적으로 동작한다.
+
+#### Projection
+
+`Projection`은  `RelBuilder.project()`로 사용 가능하지만 alias 가 존재하는 경우 반드시 column name 과 함께 project 해야한다.
+```java
+class RelBuilder{
+  public RelBuilder project(Iterable<? extends RexNode> nodes) {
+    return this.project(nodes, ImmutableList.of());
+  }
+
+  public RelBuilder project(Iterable<? extends RexNode> nodes, Iterable<String> fieldNames) {
+    return this.project(nodes, fieldNames, false);
+  }
+}
+```
+위와 같이 project 는 projection 할 `nodes만 받는 함수`와 `nodes와 함께 fieldName을 같이 받는 함수`가 오버로딩 되어있다.
+그렇기에 간혹 입력 테이블의 컬럼이름과 출력 테이블의 컬럼이름이 다를 때, `fieldName`을 입력해주지 않으면 alias 가 제대로
+적용되지 않는 문제가 발생하니 참고해야한다.
+
+#### Sort
+
+`Sort` 는 `RelBuilder.sort()`로 동작하지만, `offset`과 `limit`이 있는 경우 추가할 내용이 있다.
+RelBuilder.scan 이나, RelBuilder.filter 등 하나의 함수만으로 RelBuild 가 되는 경우도 있지만, `RelBuilder.sort`는 그렇지 않다.
+우선적으로 `sortNode.fetch`가 존재하는지 확인해야하며, 여기에 `offset`과 `limit`의 정보가 포함되어 있다.
+만약 fetch 가 존재한다면, `RelBuilder.sortLimit`을 추가적으로 만들어줘야 sql 이 입력한 그대로 동작시킬 수 있다.
+
+
 
 
