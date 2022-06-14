@@ -8,3 +8,4 @@ cmake-build-debug/
 *.jar
 *pb.cc
 *pb.h
+.gradle/

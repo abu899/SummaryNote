@@ -86,55 +86,71 @@ public class test {
   }
 }
 ```
+---
 
 ## 표준 API의 함수적 인터페이스
 
 <p align="center"><img src="./img/fi_1.png" width="80%"></p>
 
 Java 8부터는 빈번하게 사용되는 `Functional Interface`는 표준 API 패키지로 제공한다.
+구현 및 사용법은 `src/main/java/lambda/FunctionalInterfaceStudy.java`으로 확인하자.
 
---- 
+### Consumer
 
-## Functional Programming
+<p align="center"><img src="./img/consumer.png" width="80%"></p>
 
-대입문을 사용하지 않는 프로그래밍이며, 작은 문제를 해결하기 위한 함수를 통해 흐름이 진행된다.
-함수는 다른 함수를 호출하거나 매개변수로 받을 수 있으며, 함수는 무엇을(What) 할 것인지에 초첨이 맞춰져있다
-```text
-example
-add(1, 10); // 두 값을 더하는 함수
-multiple(2, 3); // 두 값을 곱하는 함수
-print(add(1, multiple(3, 4)));
-```
+단순 소비(Consume), 파라미터만 소비하고 리턴 값은 없다.
 
-### 특징
+### Supplier
 
-#### Pure Function (순수 함수)
+<p align="center"><img src="./img/supplier.png" width="80%"></p>
 
-함수형 프로그래밍에서 사용되는 함수는 모두 순수 함수로서, Side Effect(역효과)가 제거된 함수이다.
+파라미터는 없지만, 리턴을 제공(Supply)한다.
 
-- 함수의 실행이 외부로 영향을 끼치지 않는다
-- Memory I/O 관점에서 side effect 가 없다
-  - 함수 자체가 독립적이며, Thread 에 안정성을 보장받을 수 있음
-    - 병렬 처리를 동기화없이 진행 가능하다
-  - Side Effect
-    - 변수의 값, 객체의 필드 값이이 변경 또는 설정됨
-    - 자료 구조를 제자리에서 수정함
-    - 예외나 오류가 발생하면 실행이 중단됨
+### Function
 
-#### First Class Object (일급 객체)
+<p align="center"><img src="./img/function.png" width="80%"></p>
 
-1급 객체란 다음이 가능한 객체를 의미한다
+파라미터와 리턴을 제공하는 함수(Function)의 역할을 한다.
 
-- 변수나 데이터 구조안에 담을 수 있는 객체
-- 파라미터로 전달 가능하며, 반환(return value)값 으로도 사용 가능하다
-- 할당에 사용된 이름과 무관하게 고유한 구별이 가능하다
+### Operator
 
-#### Referential Transparency (참조 투명성)
+<p align="center"><img src="./img/operator.png" width="80%"></p>
 
-참조 투명성이란 다음을 의미한다
+근본적으로 `Function`과 같지만, 파라미터와 리턴이 같은 타입이다.
 
-- 동일한 인자에 대해 항상 동일한 결과를 반환한다(멱등)
-- 기존의 값은 변동되지 않고 유지된다(Immutable)
+### Predicate
+
+<p align="center"><img src="./img/predicate.png" width="80%"></p>
+
+근본적으로 `Function`과 같지만, 리턴은 `boolean` 타입을 가진다.
+
+---
+
+## andThen, compose 디폴트 메서드
+
+<p align="center"><img src="./img/fi_2.png" width="80%"></p>
+
+두 개의 `Functional Interface`를 순차적으로 연결하고, 첫 번째 처리 결과를 두 번째 매개값으로 제공해서
+최종 결과값을 얻을 때 사용한다.
+
+### andThen
+
+<p align="center"><img src="./img/andthen.png" width="80%"></p>
+
+인터페이스 AB 를 기준으로 A를 실행하고 B를 순차적으로 수행한다.
+
+- Consumer andThen
+  - `Consumer`는 소비만 할 뿐 결과를 리턴하지 않는다
+  - 따라서 Consumer andThen 은 단지 호출 순서만을 결정하게 된다.
+- Function andThen
+  - `Function`은 결과를 리턴하기에 다음 순서의 Function 의 파라미터로 넘어가게 된다.
+
+### compose
+
+<p align="center"><img src="./img/compose.png" width="80%"></p>
+
+인터페이스 AB 를 기준으로 B를 실행하고 A를 역순으로 수행한다.
 
 ## Reference
 
