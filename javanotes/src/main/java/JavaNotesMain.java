@@ -1,5 +1,6 @@
 import lambda.AndThenCompose;
 import lambda.FunctionalInterfaceApi;
+import stream.*;
 
 public class JavaNotesMain {
     public static void main(String[] args) {
@@ -8,5 +9,12 @@ public class JavaNotesMain {
 
         AndThenCompose andThenCompose = new AndThenCompose();
         andThenCompose.doAndThenExample();
+
+        FilterAndDistinct.filterAndDistinct();
+        StreamMapping.streamMapping();
+        StreamMatching.matching();
+        StreamSort.sortWithComparable();
+        StreamAggregation.aggregation();
+        StreamCollect.doCollect();
     }
 }

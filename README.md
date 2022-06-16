@@ -5,6 +5,7 @@
   - [Garbage Collection](javanotes/GC.md)
   - [Lambda expression](javanotes/Lambda.md)
   - [Functional Programming](javanotes/FunctionalProgramming.md)
+  - [Stream](javanotes/Stream.md)
 
 - Spring
 - JPA
