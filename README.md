@@ -1,8 +1,11 @@
 # SummaryNote
 
 - Java
-  - [Java Virtual Machine(JVM)](java/JVM.md)
-  - [Garbage Collection](java/GC.md)
+  - [Java Virtual Machine(JVM)](javanotes/JVM.md)
+  - [Garbage Collection](javanotes/GC.md)
+  - [Lambda expression](javanotes/Lambda.md)
+  - [Functional Programming](javanotes/FunctionalProgramming.md)
+  - [Stream](javanotes/Stream.md)
 
 - Spring
 - JPA
