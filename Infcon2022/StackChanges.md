@@ -1,6 +1,6 @@
 # Pull Request vs Stack Changes
 
-<p align="center"><img src="./img/sc_4.png" width="80%"></p>
+<p align="center"><img src="img/stack-changes/sc_4.png" width="80%"></p>
 
 이 컨텐츠에서는 기존 Github 에서 자주 진행하던 `Pull Request` 이외에 `Stack Changes`라는 방법을 통한
 코드 리뷰 방법을 제시하고 있었다. 이 컨퍼런스를 들으며 내용을 정리하고 개인적인 사견과 함께 내용을 정리해 보았다.
@@ -16,7 +16,7 @@
 
 ##  Pull Request 의 단점 또는 아쉬운점
 
-<p align="center"><img src="./img/sc.png" width="80%"></p>
+<p align="center"><img src="img/stack-changes/sc.png" width="80%"></p>
 
 개발자 별로 커밋하는 주기가 다르고 커밋량도 다르다. 여기서 말하는 커밋 주기와 커밋량은 개발자마다 하나의 커밋을 작업 단위로 나누는 기준이 다르다는 것이다.
 어떤 개발자는 할당받은 업무의 전체적인 작업을 모두 끝마치고 커밋을 하는 반면, 다른 개발자는 특정한 기능이 개발되거나 현재까지
@@ -30,7 +30,7 @@
 
 ## Stacked Changes 관점 코드 리뷰
 
-<p align="center"><img src="./img/sc_1.png" width="80%"></p>
+<p align="center"><img src="img/stack-changes/sc_1.png" width="80%"></p>
 
 `Stacked Changes` 관점에서 커밋은 말그대로 stack 이라고 한다. 즉, 커밋에 따른 코드가 차곡 차곡 쌓이고 다음에 커밋되는
 코드는 이전 코드에 영향을 끼치지 않는다는 것이다. 사실 여기까지만 보면 Pull Request 의 커밋과 크게 다른점이 없어보였다.
@@ -38,8 +38,8 @@
 여기까지만 생각하면 말그대로 커밋할때마다 풀리퀘스트 날리는 것과 큰 차이가 없어 보이지만 컨퍼런스에서 언급하는 `Graphite` 라는 툴의
 Dashboard 를 보면 하나의 일관된 흐름으로서의 풀리퀘스트를 볼 수 있다는 장점이 있었다.
 
-<p align="center"><img src="./img/sc_2.png" width="80%"></p>
-<p align="center"><img src="./img/sc_3.png" width="80%"></p>
+<p align="center"><img src="img/stack-changes/sc_2.png" width="80%"></p>
+<p align="center"><img src="img/stack-changes/sc_3.png" width="80%"></p>
 
 Stack Changes 를 통해 
 - 작업 결과 공유 뿐만 아니라 작업자의 의식 또는 작업의 흐름을 파악할 수 있다는 점이 인상깊었다.
@@ -51,7 +51,7 @@ Stack Changes 를 통해
 
 ## 결론
 
-<p align="center"><img src="./img/sc_5.png" width="80%"></p>
+<p align="center"><img src="img/stack-changes/sc_5.png" width="80%"></p>
 
 코드 리뷰는 그 자체로도 좋은 개발을 위한 방법이며, Pull Request 와 Stacked Changes 모두 좋은 수단이다.
 이 두가지 방법은 각자의 상황에 따라 적용 여부를 판단해야한다.
@@ -65,6 +65,6 @@ Stack Changes 를 통해
 
 ## Reference
 
-- INFCON 2022 - 코디 리뷰의 또 다른 접근 방법 : Pull Request vs Stack Changes 
+- 코드 리뷰의 또 다른 접근 방법 : Pull Request vs Stack Changes 
 - 컨텍스츠아이오 서지연
 
