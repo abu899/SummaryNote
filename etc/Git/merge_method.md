@@ -12,7 +12,7 @@ remote에 변경 사항을 local에 반영할 때, git fetch 후 git merge로 �
 
 ## squash
 
-<p align="center"><img src="./img/merge_1.png" width="80%"></p>
+<p align="center"><img src="img/merge_1.png" width="80%"></p>
 
 변경사항만을 병합할 때 사용하며, 이력을 복잡하게 하지 않게하거나 다수의 commit을 하나로 합칠 때 유용하다.
 
@@ -23,21 +23,21 @@ remote에 변경 사항을 local에 반영할 때, git fetch 후 git merge로 �
 
 ## fast-forward
 
-<p align="center"><img src="./img/merge_2.png" width="80%"></p>
+<p align="center"><img src="img/merge_2.png" width="80%"></p>
 
 git merge 시, merge 대상 commit이 현재 branch의 끝에서 부터 나온 것이라면 `fast-forward merge`가 진행된다.
 병합이라기보단 정렬에 가깝다고 볼 수 있으며, master branch가 가리키는 대상만이 변경된다.
 
 ## recursive
 
-<p align="center"><img src="./img/merge_3.png" width="80%"></p>
+<p align="center"><img src="img/merge_3.png" width="80%"></p>
 
 만약 위와 같이 master에서도 변경 사항이 있다면 fast-forward merge가 불가능할 때, 사용되는 병합 방법이다.
 
 - 3방향 병합(3-way merge) 알고리즘을 기반으로 2개 branch의 마지막 commit을 병합.
   - 두 branch의 공통 부모 (3ccef11)을 기준, 각 branch의 마지막 commit의 변경 사항 비교 후 병합.
 
-<p align="center"><img src="./img/merge_4.png" width="80%"></p>
+<p align="center"><img src="img/merge_4.png" width="80%"></p>
 
 병합 결과 생성된 `dabd63e`의 부모 브랜치는 2개가 된다. (4329f96, 48e91ee).
 `fast-forward` 가능 상태라도 `--no-ff` 옵션을 통해 병합이 가능하긴 하며, 두개가 아닌 더 많은 수의 브랜치를 병합하는 경우 octopus 전략이 사용된다.
@@ -45,13 +45,13 @@ git merge 시, merge 대상 commit이 현재 branch의 끝에서 부터 나온 �
 
 ## rebase
 
-<p align="center"><img src="./img/merge_5.png" width="80%"></p>
+<p align="center"><img src="img/merge_5.png" width="80%"></p>
 
 `squash`와 같이 이력을 정리하는 또다른 방법이다. 현재 브랜치의 커밋들을 대상이 되는 branch 기준으로 재작성되며,
 `commit id`는 변경되지만, 내용을 모두 그대로 유지한다.
 
 ## cherry-pick
 
-<p align="center"><img src="./img/merge_6.png" width="80%"></p>
+<p align="center"><img src="img/merge_6.png" width="80%"></p>
 
 브랜치 전체가 아닌 특정 커밋만을 병합하는 것으로, 하나의 커밋만을 `rebase`하는 것으로 볼 수 있다.

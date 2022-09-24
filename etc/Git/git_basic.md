@@ -27,7 +27,7 @@
 
 ### Objects 디렉토리
 
-<p align="center"><img src="./img/git_basic_1.png" width="80%"></p>
+<p align="center"><img src="img/git_basic_1.png" width="80%"></p>
 
 파일이 저장되는 디렉토리이며, 모든 파일은 `BLOB객체`로 저장한다. 이때 SHA-1로 체크섬(Checksum)을 계산하며,
 계산된 hash의 첫 두자리를 Objects 디렉토리 내 `폴더명`으로 사용하고 나머지는 파일이름으로 사용한다.
@@ -39,7 +39,7 @@
     - Snapshot으로 저장된 파일을 SVN과 같은 변경분 저장 방식으로 바꿔, 하나의 파일로 저장된 파일.
     - 관리하는 파일이 많아지거나 remote로 push할 때 자동으로 생성. git gc 명령어에도 생성.
 
-<p align="center"><img src="./img/git_basic_2.png" width="80%"></p>
+<p align="center"><img src="img/git_basic_2.png" width="80%"></p>
 
 - 파일 목록을 담은 `트리 객체(tree)`와 커밋 정보를 담은 `커밋 객체(commit)`를 저장.
   - 트리 객체는 다른 트리 객체를 하위에 가질 수 있음.
@@ -47,7 +47,7 @@
 
 
 
-<p align="center"><img src="./img/git_basic_3.png" width="80%"></p>
+<p align="center"><img src="img/git_basic_3.png" width="80%"></p>
 
 - Git 객체 간의 관계를 위와 같이 표현할 수 있음.
   - 파일이 커밋될 경우 커밋 객체는 트리 객체를 가리킴.
@@ -66,7 +66,7 @@
   - 즉, `reference`가 가리키는 커밋에서 시작하면, 커밋에 포함된 모든 객체에 접근 가능.
 - 따라서, `reference`는 단순한 포인터로도 볼 수 있지만, 그 자체가 `하나의 저장 영역` 또는 `작업 영역`으로 볼 수 있음.
 
-<p align="center"><img src="./img/git_basic_4.png" width="80%"></p>
+<p align="center"><img src="img/git_basic_4.png" width="80%"></p>
 
 `develop branch reference`의 log를 보면
   - 왼쪽은 branch에 연결된 커밋
@@ -74,7 +74,7 @@
 - Gerrit은 별도로 생성된 reference에 리뷰와 관련된 정보를 저장.
   - Gerrit으로 source를 push할 때 특정 경로로 push해야 하는 이유.
 
-<p align="center"><img src="./img/git_basic_5.png" width="80%"></p>
+<p align="center"><img src="img/git_basic_5.png" width="80%"></p>
 
 기존에 있던 develop의 커밋 id를 사용자가 직접 생성한 폴더에 복사하고, 이 reference의 log를 출력하면, 기존에 있던 결과와 동일하게 나오는 것을 확인 할 수 있다.
 
@@ -106,7 +106,7 @@ Git 관리 제외 대상 목록을 저장한 `exclude` 파일과 reference 목�
 
 ### HEAD 파일
 
-<p align="center"><img src="./img/git_basic_6.png" width="50%"></p>
+<p align="center"><img src="img/git_basic_6.png" width="50%"></p>
 
 HEAD 파일은 HEAD reference를 가리키는 커밋 id를 저장한다
 - `HEAD`는 항상 `현재 작업 디렉터리의 checkout된 version`을 가리킴.
