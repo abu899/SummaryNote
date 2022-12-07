@@ -61,6 +61,7 @@
 - [EC2](aws/ec2.md)
 - [VPC](aws/vpc.md)
 - [EBS](aws/ebs.md)
+- [Load Balancer](aws/lb.md)
 
 ---
 ## Etc
