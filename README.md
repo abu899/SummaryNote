@@ -56,10 +56,12 @@
 - [Cross Origin Resource Sharing(CORS)](Network/others/CORS.md)
 
 
-##AWS
+## AWS
 
-- [EC2](AWS/ec2.md)
-- [VPC](AWS/vpc.md)
+- [EC2](aws/ec2.md)
+- [VPC](aws/vpc.md)
+- [EBS](aws/ebs.md)
+- [Load Balancer](aws/lb.md)
 
 ---
 ## Etc
