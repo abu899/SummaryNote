@@ -237,3 +237,117 @@ Source: --XX-@-XX-@@-XX-@@@-XX-@@@@-XX-@@-@@-
   - RegEx: -@?@?@?-
   - First Match: `--`XX-@-XX-@@-XX-@@@-XX-@@@@-XX-@@-@@-
   - All Match: `--`XX`-@-`XX`-@@-`XX`-@@@-`XX-@@@@-XX`-@@-`@@-
+
+## 수량자 심화
+
+원하는 수량을 정확하게 지정하는 방법으로 `{ 갯수 }`를 사용한다
+
+### Example of {}
+
+Source: One ring to bring them all and in the darkness bind them
+
+- Case 1
+  - RegEx: .{5}
+  - First Match: `One r`ing to bring them all and in the darkness bind them
+  - All Match: `One ring to bring them all and in the darkness bind the`m
+- Case 2
+  - RegEx: [els]{1,3} -> 1~3개
+  - First Match: On`e` ring to bring them all and in the darkness bind them
+  - All Match: On`e` ring to bring th`e`m a`ll` and in the darkn`ess` bind th`e`m
+- Case 3
+  - RegEx: [a-z]{3,} -> 3개 이상
+  - First Match: One `ring` to bring them all and in the darkness bind them
+  - All Match: One `ring` to `bring` `them` `all` `and` in `the` `darkness` `bind` `them`
+
+### Example of mixed quantifiers
+
+수량자 뒤에 연속으로 ? 수량자가 올 때
+
+Source: One ring to bring them all and in the darkness bind them
+
+- Case 1
+  - RegEx: r.*
+  - First Match: One `ring to bring them all and in the darkness bind them`
+  - All Match: One `ring to bring them all and in the darkness bind them`
+- Case 2
+  - RegEx: r.*? -> 이 경우 `?`는 앞에 나온 수량자의 가장 적은 범위를 선택, 여기서는 0개
+  - First Match: One `r`ing to bring them all and in the darkness bind them
+  - All Match: One `r`ing to b`r`ing them all and in the da`r`kness bind them
+- Case 3
+  - RegEx: r.+
+  - First Match: One `ring to bring them all and in the darkness bind them`
+  - All Match: One `ring to bring them all and in the darkness bind them`
+- Case 4
+  - RegEx: r.+? -> Case2 와 같은 방식
+  - First Match: One `ri`ng to bring them all and in the darkness bind them
+  - All Match: One `ri`ng to b`ri`ng them all and in the da`rk`ness bind them
+- Case 5
+  - RegEx: r.?
+  - First Match: One `ri`ng to bring them all and in the darkness bind them
+  - All Match: One `ri`ng to b`ri`ng them all and in the da`rk`ness bind them
+- Case 6
+  - RegEx: r.??
+  - First Match: One `r`ing to bring them all and in the darkness bind them
+  - All Match: One `r`ing to b`r`ing them all and in the da`r`kness bind them
+
+## Character Class(경계)
+
+\w -> word(alphabet + numeric + _) == [A-z0-9_]
+
+### Example of word(/w) and Not word(/W)
+
+Source: A1 B2 c3 D_4 e:5 ffGG77--___--
+
+- Case 1
+  - RegEx: \w
+  - First Match: `A`1 B2 c3 D_4 e:5 ffGG77--___--
+  - All Match: `A1` `B2` `c3` `D_4` `e`:`5` `ffGG77`--`___`--
+- Case 2
+  - RegEx: \w*
+  - First Match: `A1` B2 c3 D_4 e:5 ffGG77--___--
+  - All Match: `A1` `B2` `c3` `D_4` `e`:`5` `ffGG77`--`___`--
+- Case 3
+  - RegEx: [a-z]\w*
+  - First Match: A1 B2 `c3` D_4 e:5 ffGG77--___--
+  - All Match: A1 B2 `c3` `D_4` `e`:5 `ffGG77`--___--
+- Case 4
+  - RegEx: \w{5}
+  - First Match: A1 B2 c3 D_4 e:5 `ffGG7`7--___--
+  - All Match: A1 B2 c3 D_4 e:5 `ffGG7`7--___--
+
+Source: AS _34:AS11.23 @#$ %12^*
+
+- Case 1
+  - RegEx: \W
+  - First Match: AS` `_34:AS11.23 @#$%12^*
+  - All Match: AS` `_34`:`AS11.23` @#$%`12`^*`
+
+### Example of Digit(\d) and not Digit(\D)
+
+Source Page 123; published: 1234 id=12#24@112
+
+- Case 1
+  - RegEx: \d
+  - First Match: Page `1`23; published: 1234 id=12#24@112
+  - All Match: Page `123`; published: `1234` id=`12`#`24`@`112`
+- Case 2
+  - RegEx: \D
+  - First Match: `P`age 123; published: 1234 id=12#24@112
+  - All Match: `Page `123`; published: `1234` id=`12`#`24`@`112
+
+### Example of Word Boundary (\b)
+
+Source: Ere iron was found or tree was hewn
+
+- Case 1
+  - RegEx: \b\w
+  - First Match: `E`re iron was found or tree was hewn
+  - All Match: `E`re `i`ron `w`as `f`ound `o`r `t`ree `w`as `h`ewn
+- Case 2
+  - RegEx: \w\b
+  - First Match: Er`e` iron was found or tree was hewn
+  - All Match: Er`e` iro`n` wa`s` foun`d` o`r` tre`e` wa`s` hew`n`
+- Case 3
+  - RegEx: \b\w+\b
+  - First Match: `Ere` iron was found or tree was hewn
+  - All Match: `Ere` `iron` `was` `found` `or` `tree` `was` `hewn`
