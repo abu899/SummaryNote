@@ -1,4 +1,4 @@
-# 단일 책임 원칙(Single Responsibility Principle, SRP)
+# 7장. 단일 책임 원칙(Single Responsibility Principle, SRP)
 
 단순히 이름만 보았을 땐, 각 모듈이 단 하나의 일만 해야한다는 의미로 받아들이기 쉽다.
 

@@ -30,3 +30,7 @@
 
 해당 서적의 이론적인 내용을 정리하고, 실습의 경우 실습코드를 보며 서적을 이해하는 방향으로
 진행하기에 실습 챕터에서는 추가적으로 `실습`을 붙인다. 추후 내용을 다시 볼 때 참고하자.
+
+## Reference
+
+[Get Your Hands Dirty on Clean Architecture Github](https://github.com/thombergs/buckpal)
