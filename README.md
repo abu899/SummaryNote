@@ -122,6 +122,12 @@
 - [5장. 웹 어댑터 구현하기](book/BuildCleanArchitecture/doc/ch5.md)
 - [6장. 영속성 어댑터 구현하기](book/BuildCleanArchitecture/doc/ch6.md)
 - [7장. 아키텍쳐 요소 테스트하기(실습)](book/BuildCleanArchitecture/doc/ch7.md)
+- [8장. 경계 간 매핑하기](book/BuildCleanArchitecture/doc/ch8.md)
+- [9장. 어플리케이션 조립하기](book/BuildCleanArchitecture/doc/ch9.md)
+- [10장. 아키텍쳐 경계 강제하기](book/BuildCleanArchitecture/doc/ch10.md)
+- [11장. 의식적으로 지름길 이용하기](book/BuildCleanArchitecture/doc/ch11.md)
+- [12장. 아키텍쳐 스타일 결정하기](book/BuildCleanArchitecture/doc/ch12.md)
+
 ---
 ## Etc
 
