@@ -133,7 +133,11 @@
 - [Intro](book/DDDStart/intro.md)
 - [1장. 도메인 모델 시작하기](book/DDDStart/ch1.md)
 - [2장. 아키텍쳐 개요](book/DDDStart/ch2.md)
-
+- [3장. 애그리거트](book/DDDStart/ch3.md)
+- [4,5,6 장] JPA와 관련된 기능 위주로 설명되어 생략
+- [6장. 응용 서비스와 표현 영역](book/DDDStart/ch6.md)
+- [7장. 도메인 서비스](book/DDDStart/ch7.md)
+- [8장. 애그리거트 트랜잭션 관리](book/DDDStart/ch8.md)
 ---
 ## Etc
 
