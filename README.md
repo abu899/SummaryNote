@@ -138,6 +138,7 @@
 - [6장. 응용 서비스와 표현 영역](book/DDDStart/ch6.md)
 - [7장. 도메인 서비스](book/DDDStart/ch7.md)
 - [8장. 애그리거트 트랜잭션 관리](book/DDDStart/ch8.md)
+- [9장. 도메인 모델과 바운디드 컨텍스트](book/DDDStart/ch9.md)
 ---
 ## Etc
 
