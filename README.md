@@ -139,6 +139,8 @@
 - [7장. 도메인 서비스](book/DDDStart/ch7.md)
 - [8장. 애그리거트 트랜잭션 관리](book/DDDStart/ch8.md)
 - [9장. 도메인 모델과 바운디드 컨텍스트](book/DDDStart/ch9.md)
+- [10장. 이벤트](book/DDDStart/ch10.md)
+- [11장. CQRS](book/DDDStart/ch11.md)
 ---
 ## Etc
 
