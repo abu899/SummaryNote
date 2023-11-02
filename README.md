@@ -141,6 +141,12 @@
 - [9장. 도메인 모델과 바운디드 컨텍스트](book/DDDStart/ch9.md)
 - [10장. 이벤트](book/DDDStart/ch10.md)
 - [11장. CQRS](book/DDDStart/ch11.md)
+
+### Modern Java in Action
+
+- [Intro](book/ModernJavaInAction/intro.md)
+- part 1
+  - [1장. 자바 8, 9, 10, 11: 무슨 일이 일어나고 있는가?](book/ModernJavaInAction/part1/ch1.md)
 ---
 ## Etc
 
