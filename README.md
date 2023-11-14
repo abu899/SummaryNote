@@ -148,6 +148,8 @@
 - part 1
   - [1장. 자바 8, 9, 10, 11: 무슨 일이 일어나고 있는가?](book/ModernJavaInAction/part1/ch1.md)
   - [2장. 동작 파라미터화 코드 전달하기](book/ModernJavaInAction/part1/ch2.md)
+  - [3장. 람다 표현식](book/ModernJavaInAction/part1/ch3.md)
+  - [4장. 스트림 소개](book/ModernJavaInAction/part2/ch4.md)
 ---
 ## Etc
 
