@@ -150,6 +150,7 @@
   - [2장. 동작 파라미터화 코드 전달하기](book/ModernJavaInAction/part1/ch2.md)
   - [3장. 람다 표현식](book/ModernJavaInAction/part1/ch3.md)
   - [4장. 스트림 소개](book/ModernJavaInAction/part2/ch4.md)
+  - [5장. 스트림 활용](book/ModernJavaInAction/part2/ch5.md)
 ---
 ## Etc
 
