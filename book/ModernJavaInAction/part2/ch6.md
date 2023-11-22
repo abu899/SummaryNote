@@ -187,3 +187,146 @@ Map<Dish.Type, Dish> mostCaloricByType = menu.stream()
 ```
 
 --- 
+
+## 6.4 분할
+
+Predicate를 분류 함수로 사용하는 그룹화 기능을 `분할 함수`라고 한다.
+분할 함수는 불리언을 반환하고, 결과적으로 그룹화 맵은 참 또는 거짓의 값을 갖는 두 개의 그룹으로 분류된다.
+분할 함수를 사용하지 않고 Predicate를 이용해 필터링을 한 후 리스트로 결과를 수집해도 동일한 결과를 얻을 수 있다.
+
+### 6.4.1 분할의 장점
+
+분할 함수를 이용하면 스트림을 분할할 때 `선택 조건에 맞는 항목과 그렇지 않은 항목을 따로 모을 수 있다`.
+partitioningBy가 반환한 맵은 참과 거짓 두 가지 키만 가지므로 간결하고 효과적이다.
+
+---
+
+## Collectors Static Method List
+
+<p align="center"><img src="./img/6_3.png" width="80%"></p>
+<p align="center"><img src="./img/6_4.png" width="80%"></p>
+
+---
+
+## 6.5 Collector 인터페이스
+
+Collector 인터페이스는 리듀싱 연산을 어떻게 구현할지 제공하는 메서드 집합으로 구성된다.
+Collector 인터페이스를 직접 구현해서 더 효율적으로 문제를 해결하는 컬렉터를 만들 수 있다.
+
+우선적으로 가장 많이 사용되는 toList가 어떻게 구현되었는지 살펴보자
+
+```text
+public interface Collector<T, A, R> {
+  Supplier<A> supplier();
+  BiConsumer<A, T> accumulator();
+  Function<A, R> finisher();
+  BinaryOperator<A> combiner();
+  Set<Characteristics> characteristics();
+}
+```
+
+- T: 수집될 스트림 항목의 제네릭 형식
+- A: 누적자, 수집 과정에서 중간 결과를 누적하는 객체의 형식
+- R: 수집 연산 결과 객체의 형식(대부분 컬렉션)
+
+### 6.5.1 Collector 인터페이스의 메서드 살펴보기
+
+<p align="center"><img src="./img/6_5.png" width="80%"></p>
+
+첫 네개의 메서드는 collect 메서드에서 실행하는 함수를 반환하지만, 마지막 메서드 characteristics는
+collect 메서드가 어떤 최적화를 이용해 리듀싱 연산을 수행할지 결정하도록 돕는 hint 집합을 제공한다.
+
+#### supplier 메서드 - 새로운 결과 컨테이너 만들기
+
+supplier 메서드는 `빈 결과로 이루어진 Supplier`를 반환한다.
+즉, supplier는 수집 과정에서 `빈 누적자 인스턴스를 만드는 파라미터가 없는 함수`이다.
+
+```text
+public Supplier<List<T>> supplier() {
+    return () -> new ArrayList<T>();
+}
+
+public Supplier<Set<T>> supplier() {
+    return () -> new HashSet<T>();
+}
+```
+
+#### accumulator 메서드 - 결과 컨테이너에 요소 추가하기
+
+accumulator 메서드는 `리듀싱 연산을 수행하는 함수`를 반환한다.
+스트림에서 n 번째 요소를 탐색할 때 두 개의 파라미터, 즉 스트림의 `n-1 항목과 n 번째 항목`을 함수에 적용한다.
+
+```text
+public BiConsumer<List<T>, T> accumulator() {
+    return (list, item) -> list.add(item);
+}
+
+public BiConsumer<Set<T>, T> accumulator() {
+    return (set, item) -> set.add(item);
+}
+```
+
+#### finisher 메서드 - 최종 변환값을 결과 컨테이너로 적용하기
+
+finisher 메서드는 스트림 탐색을 끝내고 누적자 객체를` 최종 결과로 변환할 때 호출할 함수`를 반환한다.
+누적자 객체가 이미 최종 결과인 상황에서는 별도의 변환과정이 필요 없으므로, 항등 함수를 반환한다.
+
+```text
+public Function<List<T>, List<T>> finisher() {
+    return Function.identity();
+}
+```
+
+#### combiner 메서드 - 두 결과 컨테이너 병합
+
+<p align="center"><img src="./img/6_6.png" width="80%"></p>
+
+combiner는 스트림의 서로 다른 `서브파트를 병렬로 처리`할 때 누적자가 이 `결과를 어떻게 처리할지 정의`한다.
+스트림의 리듀싱을 병렬로 수행할 때 자바 7의 Fork/Join 프레임워크와 Spliterator를 사용한다.
+다음은 병렬 리듀싱 수행 과정을 알려준다.
+
+- 스트림을 분할해야 하는지 정의하는 조건이 거짓이 될 때 까지 스트림을 재귀적으로 분할
+  - 일반적으로 프로세싱 코어 갯수를 초과하는 병렬 작업은 비효율
+- 모든 서브스트림의 각 요소에 리듀싱 연산을 순차적으로 적용
+- combiner 메서드가 반환하는 함수로 모든 결과를 합친다
+- 모든 결과를 합치면서 연산이 완료
+
+#### characteristics 메서드 - 컬렉터의 병렬 처리 힌트 집합
+
+characteristics 메서드는 컬렉터의 연산을 정의하는 Characteristics 형식의 불변 집합을 반환한다.
+스트림을 병렬로 리듀스할 것인지 병렬로 리듀스한다면 어떤 최적화를 선택할지 힌트를 제공한다.
+
+- UNORDERED
+  - 리듀싱 결과는 스트림 요소의 방문 순서나 누적 순서에 영향을 받지 않는다.
+- CONCURRENT
+  - 다중 스레드에서 accumulator 함수를 동시에 호출할 수 있으며, 컬렉터는 스트림의 병렬 리듀싱을 수행할 수 있다.
+  - UNORDERED를 함께 설정하지 않는다면, 집합처럼 요소의 순서가 무의미한 상황에서만 리듀싱을 수행할 수 있다.
+- IDENTITY_FINISH
+  - finisher 메서드가 반환하는 함수는 단순히 identity를 적용할 뿐이므로 생략할 수 있다.
+
+### 컬렉터 구현 없이 커스텀 수집 수행하기
+
+Stream은 세 발행, 누적, 합침을 인수로 받는 collect 메서드를 오버로드 하여,
+Collector 인터페이스의 메서드가 반환하는 함수와 같은 기능을 수행할 수 있다.
+
+```text
+List<Dish> dishes = menu.stream()
+  .collect(
+        ArrayList::new,
+        List::add,
+        List::addAll);
+```
+
+Collector 인터페이스를 구현하는 것보다 간결하지만 가독성이 떨어지는 단점이 존재한다.
+그렇기에 필요에 따라 커스텀 컬렉터를 구현하는 것이 중복을 피하고 재사용성을 높일 수 있다.
+또한, Characteristic을 전달할 수 없기에 IDENTIFY_FINISH와 CONCURRENT지만 UNORDERED는 아닌 컬렉터로만 동작한다.
+
+---
+
+## 결론
+
+- collect는 스트림의 요소를 수집하는 다양한 방법을 파라미터로 갖는 최종 연산이다
+  - 스트림의 요소를 하나의 값으로 리듀스하고 요약할 수 있으며, 최소, 최대, 평균등에 대한 컬렉터가 미리 정의되어 있다.
+- groupingBy를 통해 스트림의 요소를 그룹화하거나 partitioningBy를 통해 분할할 수 있다.
+- Collector는 다수준의 그룹화, 분할, 리듀싱 연산에 적합하게 설계되어 있다
+- Collector 인터페이스에 정의된 메서드를 통해 커스텀 컬렉터를 만들 수 있다.
