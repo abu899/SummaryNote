@@ -152,6 +152,7 @@
   - [4장. 스트림 소개](book/ModernJavaInAction/part2/ch4.md)
   - [5장. 스트림 활용](book/ModernJavaInAction/part2/ch5.md)
   - [6장. 스트림으로 데이터 수집](book/ModernJavaInAction/part2/ch6.md)
+  - [7장. 병렬 데이터 처리와 성능](book/ModernJavaInAction/part2/ch7.md)
 ---
 ## Etc
 
