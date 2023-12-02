@@ -145,17 +145,18 @@
 ### Modern Java in Action
 
 - [Intro](book/ModernJavaInAction/intro.md)
-- part 1
+- part 1 - 기초
   - [1장. 자바 8, 9, 10, 11: 무슨 일이 일어나고 있는가?](book/ModernJavaInAction/part1/ch1.md)
   - [2장. 동작 파라미터화 코드 전달하기](book/ModernJavaInAction/part1/ch2.md)
   - [3장. 람다 표현식](book/ModernJavaInAction/part1/ch3.md)
-- part 2
+- part 2 - 함수형 데이터 처리
   - [4장. 스트림 소개](book/ModernJavaInAction/part2/ch4.md)
   - [5장. 스트림 활용](book/ModernJavaInAction/part2/ch5.md)
   - [6장. 스트림으로 데이터 수집](book/ModernJavaInAction/part2/ch6.md)
   - [7장. 병렬 데이터 처리와 성능](book/ModernJavaInAction/part2/ch7.md)
-- part 3
+- part 3 - 스트림과 람다를 이용한 효과적 프로그래밍
   - [8장. 컬렉션 API 개선](book/ModernJavaInAction/part3/ch8.md)
+  - [9장. 리팩토링, 테스팅, 디버깅](book/ModernJavaInAction/part3/ch9.md)
 ---
 ## Etc
 
