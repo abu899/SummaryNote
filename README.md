@@ -157,6 +157,9 @@
 - part 3 - 스트림과 람다를 이용한 효과적 프로그래밍
   - [8장. 컬렉션 API 개선](book/ModernJavaInAction/part3/ch8.md)
   - [9장. 리팩토링, 테스팅, 디버깅](book/ModernJavaInAction/part3/ch9.md)
+- part 4 - 매일 자바와 함께
+  - [11장. null 대신 Optional 클래스](book/ModernJavaInAction/part4/ch11.md)
+  - [12장. 새로운 날짜와 시간 API](book/ModernJavaInAction/part4/ch12.md)
 ---
 ## Etc
 
