@@ -161,7 +161,8 @@
   - [11장. null 대신 Optional 클래스](book/ModernJavaInAction/part4/ch11.md)
   - [12장. 새로운 날짜와 시간 API](book/ModernJavaInAction/part4/ch12.md)
   - [13장. 디폴트 메서드](book/ModernJavaInAction/part4/ch13.md)
-
+- part 5 - 개선된 자바 동시성
+  - [15장. CompletableFuture와 리액티브 프로그래밍 컨셉의 기초](book/ModernJavaInAction/part5/ch15.md)
 
 ---
 ## Etc
