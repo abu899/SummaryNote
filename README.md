@@ -163,7 +163,7 @@
   - [13장. 디폴트 메서드](book/ModernJavaInAction/part4/ch13.md)
 - part 5 - 개선된 자바 동시성
   - [15장. CompletableFuture와 리액티브 프로그래밍 컨셉의 기초](book/ModernJavaInAction/part5/ch15.md)
-
+  - [16장. CompletableFuture: 안정적 비동기 프로그래밍](book/ModernJavaInAction/part5/ch16.md)
 ---
 ## Etc
 
