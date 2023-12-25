@@ -167,6 +167,7 @@
   - [17장. 리액티브 프로그래밍](book/ModernJavaInAction/part5/ch17.md)
 - part 6 - 함수형 프로그래밍과 자바 진화의 미래
   - [18장. 함수형 관점으로 생각하기](book/ModernJavaInAction/part6/ch18.md)
+  - [21장. 결론 그리고 자바의 미래](book/ModernJavaInAction/part6/ch21.md)
 ---
 ## Etc
 
