@@ -55,7 +55,7 @@ List<@NonNull Car> cars = new ArrayList<>();
 자바 8에서부터는 대상 형식이 메서드 파라미터에도 적용되므로 명시적인 제네릭 파라미터를 제공하지 않아도 된다.
 그결과 Collectors.<Car>toList() 대신 Collectors.toList()를 사용할 수 있다.
 
-```text
+```text 
 List<Car> cleanCars = cars.stream()
                           .filter(Car::isClean)
                           // .collect(Collectors.<Car>toList());
@@ -71,4 +71,4 @@ List<Car> cleanCars = cars.stream()
 
 ### B.1.1 추가 메서드
 
-<p align="center"><img src="./img/1.png" width="80%"></p
+<p align="center"><img src="./img/1.png" width="80%"></p>

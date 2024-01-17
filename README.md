@@ -168,6 +168,10 @@
 - part 6 - 함수형 프로그래밍과 자바 진화의 미래
   - [18장. 함수형 관점으로 생각하기](book/ModernJavaInAction/part6/ch18.md)
   - [21장. 결론 그리고 자바의 미래](book/ModernJavaInAction/part6/ch21.md)
+
+### 가상 면접 사례로 배우는 대규모 시스템 설계 기초(Alex Xu)
+
+- [1장. 사용자 수에 따른 규모 확장성](book/SystemDesignInterview/ch1.md)
 ---
 ## Etc
 
