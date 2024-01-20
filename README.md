@@ -172,6 +172,8 @@
 ### 가상 면접 사례로 배우는 대규모 시스템 설계 기초(Alex Xu)
 
 - [1장. 사용자 수에 따른 규모 확장성](book/SystemDesignInterview/ch1.md)
+- [2장. 개략적인 규모 추정](book/SystemDesignInterview/ch2.md)
+- [3장. 시스템 설계 면접 공략법](book/SystemDesignInterview/ch3.md)
 ---
 ## Etc
 
