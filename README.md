@@ -175,6 +175,8 @@
 - [2장. 개략적인 규모 추정](book/SystemDesignInterview/ch2.md)
 - [3장. 시스템 설계 면접 공략법](book/SystemDesignInterview/ch3.md)
 - [4장. 처리율 제한 장치의 설계](book/SystemDesignInterview/ch4.md)
+- [5장. 안정 해시 설계](book/SystemDesignInterview/ch5.md)
+
 ---
 ## Etc
 
