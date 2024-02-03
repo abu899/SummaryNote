@@ -176,7 +176,7 @@
 - [3장. 시스템 설계 면접 공략법](book/SystemDesignInterview/ch3.md)
 - [4장. 처리율 제한 장치의 설계](book/SystemDesignInterview/ch4.md)
 - [5장. 안정 해시 설계](book/SystemDesignInterview/ch5.md)
-
+- [6장. 키-값 저장소 설계](book/SystemDesignInterview/ch6.md)
 ---
 ## Etc
 
