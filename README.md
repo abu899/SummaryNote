@@ -178,6 +178,7 @@
 - [5장. 안정 해시 설계](book/SystemDesignInterview/ch5.md)
 - [6장. 키-값 저장소 설계](book/SystemDesignInterview/ch6.md)
 - [7장. 분산 시스템을 위한 유일 ID 생성기 설계](book/SystemDesignInterview/ch7.md)
+- [8장. URL 단축기 설계](book/SystemDesignInterview/ch8.md)
 
 ---
 ## Etc
