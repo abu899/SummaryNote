@@ -180,6 +180,8 @@
 - [7장. 분산 시스템을 위한 유일 ID 생성기 설계](book/SystemDesignInterview/ch7.md)
 - [8장. URL 단축기 설계](book/SystemDesignInterview/ch8.md)
 - [10장. 알림 시스템 설계](book/SystemDesignInterview/ch10.md)
+- [11장. 뉴스 피드 시스템 설계](book/SystemDesignInterview/ch11.md)
+
 ---
 ## Etc
 
