@@ -184,6 +184,10 @@
 - [12장. 채팅 시스템 설계](book/SystemDesignInterview/ch12.md)
 - [13장. 검색어 자동완성 시스템](book/SystemDesignInterview/ch13.md)
 
+### 좋은 코드, 나쁜 코드(Tom Long)
+
+- [1장. 코드 품질](book/GoodCodeBadCode/ch1.md)
+
 ---
 ## Etc
 
