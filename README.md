@@ -187,6 +187,7 @@
 ### 좋은 코드, 나쁜 코드(Tom Long)
 
 - [1장. 코드 품질](book/GoodCodeBadCode/ch1.md)
+- [2장. 추상화 계층](book/GoodCodeBadCode/ch2.md)
 
 ---
 ## Etc
