@@ -189,6 +189,7 @@
 - [1장. 코드 품질](book/GoodCodeBadCode/ch1.md)
 - [2장. 추상화 계층](book/GoodCodeBadCode/ch2.md)
 - [3장. 다른 개발자와 코드 계약](book/GoodCodeBadCode/ch3.md)
+- [4장. 오류](book/GoodCodeBadCode/ch4.md)
 
 ---
 ## Etc
