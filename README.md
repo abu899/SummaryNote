@@ -191,6 +191,8 @@
 - [3장. 다른 개발자와 코드 계약](book/GoodCodeBadCode/ch3.md)
 - [4장. 오류](book/GoodCodeBadCode/ch4.md)
 - [5장. 가독성 높은 코드를 작성하라](book/GoodCodeBadCode/ch5.md)
+- [6장. 예측 가능한 코드를 작성하라](book/GoodCodeBadCode/ch6.md)
+- [7장. 코드를 오용하기 어렵게 만들라](book/GoodCodeBadCode/ch7.md)
 
 ---
 ## Etc
