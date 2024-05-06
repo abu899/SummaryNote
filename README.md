@@ -194,6 +194,7 @@
 - [6장. 예측 가능한 코드를 작성하라](book/GoodCodeBadCode/ch6.md)
 - [7장. 코드를 오용하기 어렵게 만들라](book/GoodCodeBadCode/ch7.md)
 - [8장. 코드를 모듈화하라](book/GoodCodeBadCode/ch8.md)
+- [9장. 코드를 재사용하고 일반화할 수 있도록 하라](book/GoodCodeBadCode/ch9.md)
 
 ---
 ## Etc
