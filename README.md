@@ -196,6 +196,7 @@
 - [8장. 코드를 모듈화하라](book/GoodCodeBadCode/ch8.md)
 - [9장. 코드를 재사용하고 일반화할 수 있도록 하라](book/GoodCodeBadCode/ch9.md)
 - [10장. 단위 테스트의 원칙](book/GoodCodeBadCode/ch10.md)
+- [11장. 단위 테스트의 실제](book/GoodCodeBadCode/ch11.md)
 
 ---
 ## Etc
