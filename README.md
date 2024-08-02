@@ -88,3 +88,7 @@
 ### Coding Test
 
 - [Intro](etc/CodingTest/intro/intro.md)
+
+### MySQL 성능 최적화 입문/실전
+
+- [Intro](etc/BasicQueryOpt/intro.md)
