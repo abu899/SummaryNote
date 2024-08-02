@@ -1,4 +1,4 @@
-# 개방 폐쇄 원칙(Open Close Principle)
+# 8장. 개방 폐쇄 원칙(Open Close Principle, OCP)
 
 > 소프트웨어 개체는 확장에는 열려 있어야하고, 변경에는 닫혀 있어야한다
 

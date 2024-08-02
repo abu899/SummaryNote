@@ -1,4 +1,4 @@
-# 리스코프 치환 원칙(Liskov Substitution Principle, LSP)
+# 9장. 리스코프 치환 원칙(Liskov Substitution Principle, LSP)
 
 > 하위 타입의 객체를 상위 객체로 치환하더라도 행위가 변하면 안된다
 

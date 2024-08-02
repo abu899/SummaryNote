@@ -1,2 +1,3 @@
 rootProject.name = 'summarynote'
 include 'javanotes'
+include 'book'
