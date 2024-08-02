@@ -227,3 +227,4 @@
 ### MySQL 성능 최적화 입문/실전
 
 - [Intro](etc/BasicQueryOpt/intro.md)
+- [Index](etc/BasicQueryOpt/index.md)
