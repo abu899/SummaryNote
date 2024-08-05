@@ -229,3 +229,4 @@
 - [Intro](etc/BasicQueryOpt/intro.md)
 - [Index](etc/BasicQueryOpt/index.md)
 - [Explain](etc/BasicQueryOpt/explain.md)
+- [SQL 최적화 연습](etc/BasicQueryOpt/practice.md)
