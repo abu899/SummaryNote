@@ -228,3 +228,4 @@
 
 - [Intro](etc/BasicQueryOpt/intro.md)
 - [Index](etc/BasicQueryOpt/index.md)
+- [Explain](etc/BasicQueryOpt/explain.md)
