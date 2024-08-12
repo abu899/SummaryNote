@@ -198,6 +198,11 @@
 - [10장. 단위 테스트의 원칙](book/GoodCodeBadCode/ch10.md)
 - [11장. 단위 테스트의 실제](book/GoodCodeBadCode/ch11.md)
 
+### 마이크로서비스 아키텍쳐 구축 가이드(김용욱)
+
+- [Intro](book/MSAGuide/intro.md)
+- [1장. 마이크로서비스 아키텍쳐란?](book/MSAGuide/ch1.md)
+
 ---
 ## Etc
 
