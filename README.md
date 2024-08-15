@@ -202,6 +202,7 @@
 
 - [Intro](book/MSAGuide/intro.md)
 - [1장. 마이크로서비스 아키텍쳐란?](book/MSAGuide/ch1.md)
+- [2장. 어떻게 적용해야 할까?](book/MSAGuide/ch2.md)
 
 ---
 ## Etc
