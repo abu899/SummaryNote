@@ -201,8 +201,11 @@
 ### 마이크로서비스 아키텍쳐 구축 가이드(김용욱)
 
 - [Intro](book/MSAGuide/intro.md)
-- [1장. 마이크로서비스 아키텍쳐란?](book/MSAGuide/ch1.md)
-- [2장. 어떻게 적용해야 할까?](book/MSAGuide/ch2.md)
+- Part 1. 마이크로서비스 아키텍쳐 이해하기
+  - [1장. 마이크로서비스 아키텍쳐란?](book/MSAGuide/ch1.md)
+  - [2장. 어떻게 적용해야 할까?](book/MSAGuide/ch2.md)
+  - [3장. 데이터베이스를 분리한다고?](book/MSAGuide/ch3.md)
+- Part 2. 마이크로서비스 아키텍쳐 적용하기
 
 ---
 ## Etc
