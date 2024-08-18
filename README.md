@@ -206,6 +206,7 @@
   - [2장. 어떻게 적용해야 할까?](book/MSAGuide/ch2.md)
   - [3장. 데이터베이스를 분리한다고?](book/MSAGuide/ch3.md)
 - Part 2. 마이크로서비스 아키텍쳐 적용하기
+  - [4장. 서비스 선정하기](book/MSAGuide/ch4.md)
 
 ---
 ## Etc
