@@ -57,7 +57,7 @@
 김영한의 실전 자바 - 고급 1편, 멀티스레드와 동시섯ㅇ
 출처: 인프런
 
-- [프로세스와 스레드](lecture/java-advance-1/docs/ch1.md)
+- [프로세스와 스레드](lecture/java-adv-1/docs/ch1.md)
 - 
 ### Others
 
