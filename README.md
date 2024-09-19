@@ -59,7 +59,7 @@
 
 - [프로세스와 스레드](lecture/java-adv-1/docs/ch1.md)
 - [스레드 생성과 실행](lecture/java-adv-1/docs/ch2.md)
-
+- [스레드 제어와 생명주기](lecture/java-adv-1/docs/ch3.md)
 
 ### Others
 
