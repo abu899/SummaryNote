@@ -109,4 +109,45 @@ join() 메서드를 호출하는 스레드는 대상 스레드가 TERMINATE 될 
 - join()을 하는 스레드는 스케쥴링에서 벗어나서 CPU를 사용하지 않지만 스레드는 점유한 상태
 - 다른 스레드가 완료될 떄 까지 무기한 기다려야되는 단점이 존재
 
+---
 
+## Interrupt
+
+특정 스레드의 작업을 중간에 중단하려면 어떻게 해야할까?
+
+- 스레드를 중단하는 가장 쉬운 방법은 변수(runFlag)를 사용하는 것
+  - [소스코드](../src/main/java/org/example/thread/control/interrupt/ThreadStopMainV1.java)
+- 위 코드의 문제점은 main에서 runFlag를 바꿔도 worker가 바로 중단되는 것이 아니라는 것
+
+이런 경우 인터럽트를 사용하면 WAITING, TIME_WAITING 상태에 있는 스레드를 RUNNABLE로 만들 수 있다.
+[소스코드](../src/main/java/org/example/thread/control/interrupt/ThreadStopMainV2.java)
+
+여기서 알아야할 점은 해당 코드에서 interrupt() 메서드를 호출한다고 해서 바로 종료되는 것이 아니라는 점이다. 
+Thread.sleep()과 같이 `InterruptedException을 발생시키는 메서드를 호출하거나 호출 중`일 때 종료된다
+
+- interrupt() 메서드를 통해 TIMED_WAITING, WAITING 상태에 있는 스레드를 RUNNABLE로 변경되면서 InterruptedException을 발생시킨다
+  - RUNNABLE 상태가 되어야 catch 블록이 실행할 수 있음
+- 인터럽트를 사용하면 대기 중인 쓰레드를 꺠워서 RUNNABLE 상태로 만들 수 있다
+
+---
+
+## yield
+
+어떤 스레드가 얼마나 실행될지는 운영체제의 스케쥴링에 의해 결정된다. 이때 특정 스레드가 바쁘지 않은 상황에서
+CPU 실행 기회를 다른 스레드에게 넘기고 싶을 때 yield() 메서드를 사용할 수 있다.
+소스코드를 확인해보면 아무것도 하지 않았을 떄(empty), sleep, yield를 사용했을 떄를 비교할 수 있다.
+[소스코드](../src/main/java/org/example/thread/control/yield/YieldMain.java)
+
+### sleep vs yield
+
+- sleep
+  - 일정 시간동안 RUNNABLE -> TIMED_WAITING 상태로 변경
+    - 이 경우 CPU는 자원을 사용하지 않고 실행 스케쥴링에서 제외되며, 일정 시간 이후 다시 RUNNABLE 상태로 변경되면 실행 스케쥴링에 포함
+    - 결과적으로 보면 `TIMED_WAITING 상태`가 되어 다른 스레드에 CPU 실행 기회를 양보하는 효과
+  - 단점
+    - 스레드의 상태가 계속 변화되며 설정한 시간 동안 스레드가 실행되지 않음
+    - 양보할 스레드가 없어도 일정 시간이 지나야 다시 실행
+- yield
+  - 실행 중인 스레드가 다른 스레드에게 실행 기회를 양보
+    - 이 경우 스레드의 상태는 `RUNNABLE로 유지`되지만, 스케쥴링 큐로 들어가 다른 스레드에게 실행 기회를 양보
+  - 운영체제에게 양보하도록 `힌트를 제공`하며 강제되지는 않는다
