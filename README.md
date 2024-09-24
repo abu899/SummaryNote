@@ -61,6 +61,7 @@
 - [스레드 생성과 실행](lecture/java-adv-1/docs/ch2.md)
 - [스레드 제어와 생명주기](lecture/java-adv-1/docs/ch3.md)
 - [메모리 가시성](lecture/java-adv-1/docs/ch4.md)
+- [동기화](lecture/java-adv-1/docs/ch5.md)
 
 ### Others
 
