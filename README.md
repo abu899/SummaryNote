@@ -62,6 +62,7 @@
 - [스레드 제어와 생명주기](lecture/java-adv-1/docs/ch3.md)
 - [메모리 가시성](lecture/java-adv-1/docs/ch4.md)
 - [동기화](lecture/java-adv-1/docs/ch5.md)
+- [고급 동기화](lecture/java-adv-1/docs/ch6.md)
 
 ### Others
 
