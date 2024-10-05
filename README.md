@@ -63,6 +63,7 @@
 - [메모리 가시성](lecture/java-adv-1/docs/ch4.md)
 - [동기화](lecture/java-adv-1/docs/ch5.md)
 - [고급 동기화](lecture/java-adv-1/docs/ch6.md)
+- [생산자, 소비자 문제](lecture/java-adv-1/docs/ch7.md)
 
 ### Others
 
