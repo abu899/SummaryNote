@@ -7,7 +7,7 @@ public abstract class ThreadUtils {
         try {
             Thread.sleep(millis);
         } catch (InterruptedException e) {
-            log("interrupted occurred" + e.getMessage());
+            log("interrupted occurred :" + e.getMessage());
             throw new RuntimeException(e);
         }
     }
