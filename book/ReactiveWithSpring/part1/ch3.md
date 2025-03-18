@@ -1,4 +1,4 @@
-# Ch 3: Blocking I/O와 Non-Blocking I/O
+# Ch 3. Blocking I/O와 Non-Blocking I/O
 
 I/O는 일반적으로 컴퓨터 시스템이 외부의 입출력 장치들과 데이터를 주고 받는 것을 의미한다.
 
