@@ -236,6 +236,7 @@
   - [Ch 6. 마블 다이어그램](book/ReactiveWithSpring/part2/ch5-7.md)
   - [Ch 7. Cold Sequence와 Hot Sequence](book/ReactiveWithSpring/part2/ch5-7.md)
   - [Ch 8. Backpressure](book/ReactiveWithSpring/part2/ch8.md)
+  - [Ch 9. Sinks](book/ReactiveWithSpring/part2/ch9.md)
 
 ---
 ## Etc
