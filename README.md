@@ -237,6 +237,11 @@
   - [Ch 7. Cold Sequence와 Hot Sequence](book/ReactiveWithSpring/part2/ch5-7.md)
   - [Ch 8. Backpressure](book/ReactiveWithSpring/part2/ch8.md)
   - [Ch 9. Sinks](book/ReactiveWithSpring/part2/ch9.md)
+  - [Ch 10. Scheduler](book/ReactiveWithSpring/part2/ch10.md)
+  - [Chapter 11. Context](book/ReactiveWithSpring/part2/ch11.md)
+  - [Chapter 12. Debugging](book/ReactiveWithSpring/part2/ch12.md)
+  - [Chapter 13. Testing](book/ReactiveWithSpring/part2/ch13.md)
+  - [Chapter 14. Operator](book/ReactiveWithSpring/part2/ch14.md)
 
 ---
 ## Etc
